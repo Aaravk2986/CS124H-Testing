@@ -705,9 +705,17 @@ class _BooksScreenState extends State<BooksScreen>
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  _buildIconButton(context, 0, Icons.local_fire_department_sharp, 'Popular'),
-                  _buildIconButton(context, 1, Icons.new_releases, 'New'),
-                  _buildIconButton(context, 2, Icons.list, 'All'),
+                  Expanded(
+                    child: _buildIconButton(context, 0, Icons.local_fire_department_sharp, 'Popular'),
+                  ),
+                  SizedBox(width: 8.0),
+                  Expanded(
+                    child: _buildIconButton(context, 1, Icons.new_releases, 'New'),
+                  ),
+                  SizedBox(width: 8.0),
+                  Expanded(
+                    child: _buildIconButton(context, 2, Icons.list, 'All'),
+                  ),
                 ],
               ),
             ],
@@ -720,32 +728,29 @@ class _BooksScreenState extends State<BooksScreen>
   }
 
   Widget _buildIconButton(BuildContext context, int index, IconData icon, String text) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.28, // Fixed width for all buttons
-      child: ElevatedButton(
-        onPressed: () => _handleIconBoxTap(index),
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Color.fromRGBO(19, 41, 75, 1), // Background color
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12.0), // Rounded corners
-          ),
-          padding: const EdgeInsets.symmetric(vertical: 16.0),
+    return ElevatedButton(
+      onPressed: () => _handleIconBoxTap(index),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Color.fromRGBO(19, 41, 75, 1), // Background color
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12.0), // Rounded corners
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, color: const Color.fromRGBO(255, 95, 5, 1)),
-            SizedBox(width: 8.0),
-            Text(
-              text,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18.0,
-                color: Colors.white,
-              ),
+        padding: const EdgeInsets.symmetric(vertical: 16.0),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(icon, color: const Color.fromRGBO(255, 95, 5, 1)),
+          SizedBox(width: 8.0),
+          Text(
+            text,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18.0,
+              color: Colors.white,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
