@@ -272,3 +272,196 @@ class _BooksScreenState extends State<BooksScreen>
     widget.onTap(_tabController.index);
   }
 }
+/*
+import 'package:flutter/material.dart';
+
+class BooksScreen extends StatefulWidget {
+  final Widget child;
+  final ValueChanged<int> onTap;
+  final int selectedIndex;
+
+  const BooksScreen({
+    required this.child,
+    required this.onTap,
+    required this.selectedIndex,
+    super.key,
+  });
+
+  @override
+  State<BooksScreen> createState() => _BooksScreenState();
+}
+
+class _BooksScreenState extends State<BooksScreen>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 3, vsync: this)
+      ..addListener(_handleTabIndexChanged);
+  }
+
+  @override
+  void dispose() {
+    _tabController.removeListener(_handleTabIndexChanged);
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    _tabController.index = widget.selectedIndex;
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        title: Padding(
+          padding: const EdgeInsets.only(left: 16.0), 
+          child: Text(
+            'Hi, Aarav',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Color.fromRGBO(19, 41, 75, 1),
+              fontSize: 28,
+            ),
+          ),
+        ),
+        centerTitle: false,
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(140.0),
+          child: Column(
+            children: [
+              SizedBox(height: 16.0),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(30.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 4,
+                      offset: Offset(0, 2),
+                    ),
+                  ],
+                ),
+                child: TextField(
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    color: Colors.black87,
+                  ),
+                  decoration: InputDecoration(
+                    hintText: 'Explore',
+                    hintStyle: TextStyle(color: Colors.grey),
+                    prefixIcon: Icon(Icons.search, color: Colors.grey),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.symmetric(vertical: 12.0),
+                  ),
+                ),
+              ),
+              SizedBox(height: 16.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  // "Popular" Container with GestureDetector
+                  GestureDetector(
+                    onTap: () => _handleIconBoxTap(0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.28,
+                      padding: const EdgeInsets.symmetric(vertical: 16.0),
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(19, 41, 75, 1),
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.local_fire_department_sharp, color: const Color.fromRGBO(255, 95, 5, 1)),
+                          SizedBox(width: 2.0),
+                          Text(
+                            'Popular',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18.0,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  // "New" Container with GestureDetector
+                  GestureDetector(
+                    onTap: () => _handleIconBoxTap(1),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.28,
+                      padding: const EdgeInsets.symmetric(vertical: 16.0),
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(19, 41, 75, 1),
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.new_releases, color: const Color.fromRGBO(255, 95, 5, 1)),
+                          SizedBox(width: 8.0),
+                          Text(
+                            'New',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18.0,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  // "All" Container with GestureDetector
+                  GestureDetector(
+                    onTap: () => _handleIconBoxTap(2),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.28,
+                      padding: const EdgeInsets.symmetric(vertical: 16.0),
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(19, 41, 75, 1),
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.list, color: const Color.fromRGBO(255, 95, 5, 1)),
+                          SizedBox(width: 8.0),
+                          Text(
+                            'All',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18.0,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+      body: widget.child,
+      backgroundColor: Colors.white,
+    );
+  }
+
+  void _handleTabIndexChanged() {
+    widget.onTap(_tabController.index);
+  }
+
+  void _handleIconBoxTap(int index) {
+    widget.onTap(index);
+    _tabController.index = index;
+  }
+}
+*/
