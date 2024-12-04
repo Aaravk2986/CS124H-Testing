@@ -571,30 +571,33 @@ class _BooksScreenState extends State<BooksScreen>
   }
 
   Widget _buildIconBox(BuildContext context, int index, IconData icon, String text) {
-    return InkWell(
-      onTap: () => _handleIconBoxTap(index),
-      borderRadius: BorderRadius.circular(12.0), // This helps the ripple effect match the container shape
-      child: Container(
-        width: MediaQuery.of(context).size.width * 0.28,
-        padding: const EdgeInsets.symmetric(vertical: 16.0),
-        decoration: BoxDecoration(
-          color: Color.fromRGBO(19, 41, 75, 1),
-          borderRadius: BorderRadius.circular(12.0),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, color: const Color.fromRGBO(255, 95, 5, 1)),
-            SizedBox(width: 8.0),
-            Text(
-              text,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18.0,
-                color: Colors.white,
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: () => _handleIconBoxTap(index),
+        borderRadius: BorderRadius.circular(12.0), // This helps the ripple effect match the container shape
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.28,
+          padding: const EdgeInsets.symmetric(vertical: 16.0),
+          decoration: BoxDecoration(
+            color: Color.fromRGBO(19, 41, 75, 1),
+            borderRadius: BorderRadius.circular(12.0),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(icon, color: const Color.fromRGBO(255, 95, 5, 1)),
+              SizedBox(width: 8.0),
+              Text(
+                text,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18.0,
+                  color: Colors.white,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
