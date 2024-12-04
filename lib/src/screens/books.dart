@@ -705,21 +705,21 @@ class _BooksScreenState extends State<BooksScreen>
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4.0), // Adding margin to the sides
-                    child: Expanded(
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4.0), // Add padding to the sides
                       child: _buildIconButton(context, 0, Icons.local_fire_department_sharp, 'Popular'),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4.0), // Adding margin to the sides
-                    child: Expanded(
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4.0), // Add padding to the sides
                       child: _buildIconButton(context, 1, Icons.new_releases, 'New'),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4.0), // Adding margin to the sides
-                    child: Expanded(
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4.0), // Add padding to the sides
                       child: _buildIconButton(context, 2, Icons.list, 'All'),
                     ),
                   ),
@@ -735,29 +735,31 @@ class _BooksScreenState extends State<BooksScreen>
   }
 
   Widget _buildIconButton(BuildContext context, int index, IconData icon, String text) {
-    return ElevatedButton(
-      onPressed: () => _handleIconBoxTap(index),
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Color.fromRGBO(19, 41, 75, 1), // Background color
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.0), // Rounded corners
-        ),
-        padding: const EdgeInsets.symmetric(vertical: 16.0),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(icon, color: const Color.fromRGBO(255, 95, 5, 1)),
-          SizedBox(width: 8.0),
-          Text(
-            text,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 18.0,
-              color: Colors.white,
-            ),
+    return SizedBox(
+      height: 56.0, // Ensure consistent height
+      child: ElevatedButton(
+        onPressed: () => _handleIconBoxTap(index),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Color.fromRGBO(19, 41, 75, 1), // Background color
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.0), // Rounded corners
           ),
-        ],
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, color: const Color.fromRGBO(255, 95, 5, 1)),
+            SizedBox(width: 8.0),
+            Text(
+              text,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18.0,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -773,3 +775,4 @@ class _BooksScreenState extends State<BooksScreen>
     });
   }
 }
+
