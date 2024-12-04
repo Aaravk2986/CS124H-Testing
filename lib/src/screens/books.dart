@@ -720,29 +720,32 @@ class _BooksScreenState extends State<BooksScreen>
   }
 
   Widget _buildIconButton(BuildContext context, int index, IconData icon, String text) {
-    return ElevatedButton(
-      onPressed: () => _handleIconBoxTap(index),
-      style: ElevatedButton.styleFrom(
-        primary: Color.fromRGBO(19, 41, 75, 1), // Background color
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.0), // Rounded corners
-        ),
-        padding: const EdgeInsets.symmetric(vertical: 16.0),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(icon, color: const Color.fromRGBO(255, 95, 5, 1)),
-          SizedBox(width: 8.0),
-          Text(
-            text,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 18.0,
-              color: Colors.white,
-            ),
+    return SizedBox(
+      width: MediaQuery.of(context).size.width * 0.28, // Fixed width for all buttons
+      child: ElevatedButton(
+        onPressed: () => _handleIconBoxTap(index),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Color.fromRGBO(19, 41, 75, 1), // Background color
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.0), // Rounded corners
           ),
-        ],
+          padding: const EdgeInsets.symmetric(vertical: 16.0),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, color: const Color.fromRGBO(255, 95, 5, 1)),
+            SizedBox(width: 8.0),
+            Text(
+              text,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18.0,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
