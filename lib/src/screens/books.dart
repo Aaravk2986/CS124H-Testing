@@ -315,7 +315,7 @@ class _BooksScreenState extends State<BooksScreen>
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         title: Padding(
-          padding: const EdgeInsets.only(left: 16.0), 
+          padding: const EdgeInsets.only(left: 16.0),
           child: Text(
             'Hi, Aarav',
             style: TextStyle(
@@ -363,7 +363,6 @@ class _BooksScreenState extends State<BooksScreen>
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  // "Popular" Container with GestureDetector
                   GestureDetector(
                     onTap: () => _handleIconBoxTap(0),
                     child: Container(
@@ -390,7 +389,6 @@ class _BooksScreenState extends State<BooksScreen>
                       ),
                     ),
                   ),
-                  // "New" Container with GestureDetector
                   GestureDetector(
                     onTap: () => _handleIconBoxTap(1),
                     child: Container(
@@ -417,7 +415,6 @@ class _BooksScreenState extends State<BooksScreen>
                       ),
                     ),
                   ),
-                  // "All" Container with GestureDetector
                   GestureDetector(
                     onTap: () => _handleIconBoxTap(2),
                     child: Container(
@@ -461,7 +458,10 @@ class _BooksScreenState extends State<BooksScreen>
 
   void _handleIconBoxTap(int index) {
     widget.onTap(index);
-    _tabController.index = index;
+    setState(() {
+      _tabController.index = index;
+    });
   }
 }
+
 */
