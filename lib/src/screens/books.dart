@@ -705,16 +705,23 @@ class _BooksScreenState extends State<BooksScreen>
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Expanded(
-                    child: _buildIconButton(context, 0, Icons.local_fire_department_sharp, 'Popular'),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0), // Adding margin to the sides
+                    child: Expanded(
+                      child: _buildIconButton(context, 0, Icons.local_fire_department_sharp, 'Popular'),
+                    ),
                   ),
-                  SizedBox(width: 8.0),
-                  Expanded(
-                    child: _buildIconButton(context, 1, Icons.new_releases, 'New'),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0), // Adding margin to the sides
+                    child: Expanded(
+                      child: _buildIconButton(context, 1, Icons.new_releases, 'New'),
+                    ),
                   ),
-                  SizedBox(width: 8.0),
-                  Expanded(
-                    child: _buildIconButton(context, 2, Icons.list, 'All'),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0), // Adding margin to the sides
+                    child: Expanded(
+                      child: _buildIconButton(context, 2, Icons.list, 'All'),
+                    ),
                   ),
                 ],
               ),
