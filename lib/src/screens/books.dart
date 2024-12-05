@@ -614,7 +614,6 @@ class _BooksScreenState extends State<BooksScreen>
     });
   }
 }
-*/
 import 'package:flutter/material.dart';
 
 class BooksScreen extends StatefulWidget {
@@ -775,4 +774,48 @@ class _BooksScreenState extends State<BooksScreen>
     });
   }
 }
+
+*/
+
+package edu.illinois.cs.cs124.ay2024.mp.activities;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
+import edu.illinois.cs.cs124.ay2024.mp.R;
+import edu.illinois.cs.cs124.ay2024.mp.helpers.ResultMightThrow;
+import edu.illinois.cs.cs124.ay2024.mp.models.RSO;
+import edu.illinois.cs.cs124.ay2024.mp.network.Client;
+
+public class RSOActivity extends Activity {
+    private static final String LOG_TAG = RSOActivity.class.getSimpleName();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_rso);
+
+        String rsoId = getIntent().getStringExtra("id");
+        if (rsoId == null) {
+            return;
+        }
+
+        Client.getRSO(rsoId, new Client.RSOCallback() {
+            @Override
+            public void onResult(ResultMightThrow<RSO> result) {
+                try {
+                    RSO rso = result.getValue();
+                    ((TextView) findViewById(R.id.rso_title)).setText(rso.getTitle());
+                    ((TextView) findViewById(R.id.rso_mission)).setText(rso.getMission());
+                    ((TextView) findViewById(R.id.rso_website)).setText(rso.getWebsite());
+                    ((TextView) findViewById(R.id.rso_categories)).setText(String.join(", ", rso.getCategories()));
+                } catch (Exception e) {
+                    Log.e(LOG_TAG, "Failed to get RSO details", e);
+                }
+            }
+        });
+    }
+}
+
 
